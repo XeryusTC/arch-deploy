@@ -13,9 +13,9 @@ command_exists () {
 }
 
 echo "Updating software"
-$SUDO pacman -Syu --quiet
+$SUDO pacman -Syu --quiet --noconfirm
 echo "Installing new software"
-$SUDO pacman -S --needed < softwarelist.txt
+$SUDO pacman -S --needed --noconfirm - < softwarelist.txt
 
 if ! command_exists qualia ; then
 	$SUDO pip install mir.qualia
@@ -27,6 +27,14 @@ if [[ $(git config --get filter.qualia.clean | head -c1 | wc -c) -eq 0 ]]; then
 	git config filter.qualia.smudge "qualia $HOSTNAME"
 	rm .git/index
 	git checkout HEAD -- "$(git rev-parse --show-toplevel)"
+fi
+
+# Install aurman
+if ! command_exists aurman ; then
+	git clone https://aur.archlinux.org/aurman.git aurman
+	cd aurman
+	makepkg -si
+	cd $WD
 fi
 
 # Set up i3

@@ -14,6 +14,7 @@ libreoffice-fresh
 maim
 redshift
 rsync
+rust
 texlive-bibtexextra
 texlive-core
 texlife-fontsextra
@@ -28,8 +29,7 @@ texlive-science
 thunderbird
 ttf-dejavu
 ttf-inconsolata
-ttf-hack
-ttf-liberation
+ttf-symbola
 vim
 xautolock
 xclip
