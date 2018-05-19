@@ -45,3 +45,5 @@ if [ ! -d ~/.i3 ]; then
 	ln -fs ${WD}/i3/exit.sh ~/.i3/exit.sh
 	ln -fs ${WD}/i3/lock.sh ~/.i3/lock.sh
 fi
+
+ln -fs ${WD}/Xresources ~/.Xresources

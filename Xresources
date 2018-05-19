@@ -1,0 +1,54 @@
+! do not scroll with output, but do scroll on keypress
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+! scrollbar
+URxvt.scrollColor:#7738a0
+URxvt.scrollstyle: plain
+URxvt.scrollBar_right:True
+
+URxvt.foreground:White
+URxvt.background:Black
+URxvt.transparent:True
+URxvt.shading:30
+URxvt.font: xft:DejaVu Sans Mono:size=9:antialias=true:hinting=true
+URxvt.letterSpace: -1
+URxvt.saveLines:2048
+URxvt.cursorUnderline: False
+URxvt.cursorBlink: False
+! Next two lines are to enable paste with ctrl-v and ctrl-c
+URxvt.keysym.C-v: eval:paste_clipboard
+URxvt.keysym.C-c: eval:selection_to_clipboard
+URxvt.iso14755: False
+URxvt.iso14755_52: False
+
+URxvt.urgentOnBell:True
+URxvt.visualBell:True
+
+! Enable clickable URLs (to open in firefox)
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg6
+
+! Dont scroll term in LESS, VIM etc
+URxvt.secondaryScreen: True
+URxvt.secondaryScroll: False
+
+! Change colors
+*color0: black
+*color1: red3
+*color2: green3
+*color3: yellow3
+*color4: blue2
+*color5: magenta3
+*color6: cyan3
+*color7: gray90
+*color8: grey90
+*color9: red
+*color10: green
+*color11: yellow
+*color12: #0060FF
+*color13: #FF30FF
+*color14: cyan
+*color15: white
