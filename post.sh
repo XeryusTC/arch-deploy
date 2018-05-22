@@ -13,9 +13,9 @@ command_exists () {
 }
 
 echo "Updating software"
-$SUDO pacman -Syu --quiet --noconfirm
+$SUDO pacman -Syuq --noconfirm
 echo "Installing new software"
-$SUDO pacman -S --needed --noconfirm - < softwarelist.txt
+$SUDO pacman -Sq --needed --noconfirm - < softwarelist.txt
 
 if ! command_exists qualia ; then
 	$SUDO pip install mir.qualia
@@ -47,3 +47,6 @@ if [ ! -d ~/.i3 ]; then
 fi
 
 ln -fs ${WD}/Xresources ~/.Xresources
+
+# Set up lightdm
+$SUDO ln -fs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
