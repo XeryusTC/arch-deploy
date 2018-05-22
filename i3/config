@@ -112,8 +112,8 @@ floating_minimum_size 320 x 240
 floating_maximum_size  -1 x  -1
 
 # Hide window decorations
-new_window pixel 2
-new_float normal 2
+new_window pixel 3
+new_float normal 3
 
 # Hide the borders of tiles that touch edge of the screen
 hide_edge_borders both
@@ -289,9 +289,9 @@ bindsym $mod+$mod2+r restart
 bindsym $mod+$mod2+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Take screenshots
-bindcode --release 107 exec scrot "/home/xeryustc/Pictures/screen_%Y-%m-%d_%H:%M:%S.png"
-bindcode --release $mod+107 exec scrot -u "/home/xeryustc/Pictures/screen_%Y-%m-%d_%H:%M:%S.png"
-bindcode --release $mod2+107 exec scrot -s "/home/xeryustc/Pictures/screen_%Y-%m-%d_%H:%M:%S.png"
+bindcode --release 107 exec maim "/home/xeryus/screenshots/screen_$(date -Isecond).png"
+bindcode --release $mod+107 exec maim -i $(xdotool getactivewindow) "/home/xeryus/screenshots/screen_$(date -Isecond).png"
+bindcode --release $mod2+107 exec maim -s "/home/xeryus/screenshots/screen_$(date -Isecond).png"
 
 # Adjust volume
 bindcode 121 exec amixer set Master toggle

@@ -33,6 +33,7 @@ ttf-symbola
 vim
 xautolock
 xclip
+xdotool
 xorg-server
 xorg-x11perf
 xorg-xev

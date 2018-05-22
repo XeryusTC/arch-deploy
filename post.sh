@@ -13,6 +13,7 @@ command_exists () {
 }
 
 echo "Updating software"
+$SUDO sed -i 's/^#Color$/Color/' /etc/pacman.conf
 $SUDO pacman -Syuq --noconfirm
 echo "Installing new software"
 $SUDO pacman -Sq --needed --noconfirm - < softwarelist.txt
@@ -47,6 +48,7 @@ if [ ! -d ~/.i3 ]; then
 fi
 
 ln -fs ${WD}/Xresources ~/.Xresources
+mkdir -p ~/screenshots
 
 # Set up lightdm
 $SUDO ln -fs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
