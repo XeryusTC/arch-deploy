@@ -1,3 +1,5 @@
 * filter=qualia
 .* filter=qualia
+*.jpg filter=
+*.png filter=
 
