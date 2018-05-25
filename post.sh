@@ -38,6 +38,11 @@ if ! command_exists aurman ; then
 	cd $WD
 fi
 
+# Set up alacritty
+if ! command_exists alacritty ; then
+	aurman -S alacritty-scrollback-git
+fi
+
 # Set up i3
 if [ ! -d ~/.i3 ]; then
 	echo "Symlinking i3 config"
@@ -47,7 +52,7 @@ if [ ! -d ~/.i3 ]; then
 	ln -fs ${WD}/i3/lock.sh ~/.i3/lock.sh
 fi
 
-ln -fs ${WD}/Xresources ~/.Xresources
+ln -fs ${WD}/alacritty.yml ~/.config/alacritty.yml
 mkdir -p ~/screenshots
 
 # Set up lightdm
