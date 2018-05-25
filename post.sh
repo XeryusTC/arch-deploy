@@ -47,14 +47,15 @@ fi
 if [ ! -d ~/.i3 ]; then
 	echo "Symlinking i3 config"
 	mkdir -p ~/.i3
-	ln -fs ${WD}/i3/config ~/.i3/config
-	ln -fs ${WD}/i3/exit.sh ~/.i3/exit.sh
-	ln -fs ${WD}/i3/lock.sh ~/.i3/lock.sh
+	ln -vfs ${WD}/i3/config ~/.i3/config
+	ln -vfs ${WD}/i3/exit.sh ~/.i3/exit.sh
+	ln -vfs ${WD}/i3/lock.sh ~/.i3/lock.sh
 fi
 
-ln -fs ${WD}/alacritty.yml ~/.config/alacritty.yml
-ln -fs ${WD}/bashrc ~/.bashrc
+ln -vfs ${WD}/alacritty.yml ~/.config/alacritty.yml
+ln -vfs ${WD}/bashrc ~/.bashrc
+ln -vfs ${WD}/redshift.conf ~/.config/redshift.conf
 mkdir -p ~/screenshots
 
 # Set up lightdm
-$SUDO ln -fs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
+$SUDO ln -vfs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
