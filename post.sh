@@ -59,3 +59,38 @@ mkdir -p ~/screenshots
 
 # Set up lightdm
 $SUDO ln -vfs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
+
+# Set up pyenv
+if ! command_exists pyenv; then
+	git clone --depth=2 https://github.com/pyenv/pyenv.git ~/.pyenv
+	git clone --depth=2 https://github.com/pyenv/pyenv-virtualenv.git \
+		~/.pyenv/plugins/pyenv-virtualenv
+fi
+
+# Set up vim
+ln -vfs ${WD}/vimrc ~/.vimrc
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
+	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+fi
+if [ ! -d ~/.vim/bundle/rust.vim ]; then
+	git clone --depth=2 https://github.com/rust-lang/rust.vim.git \
+		~/.vim/bundle/rust.vim
+fi
+if [ ! -d ~/.vim/bundle/typescript-vim ]; then
+	git clone --depth=2 https://github.com/leafgarland/typescript-vim.git \
+		~/.vim/bundle/typescript-vim
+fi
+
+# Set up SpiderOak
+if ! command_exists SpiderOakONE; then
+	aurman -S spideroak-one
+fi
+if [ ! -f ~/.config/SpiderOakONE/config.txt ]; then
+	read -sp "SpiderOak password: " spideroakpass
+	read -p "SpiderOak devicename: " spideroakname
+	echo {"username":"xeryustc","password":"${spideroakpass}",\
+		"devicename":"${spideroakname}","reinstall":true} > /tmp/spideroak.json
+	SpiderOakONE --setup=/tmp/spideroak.json
+	rm /tmp/spideroak.json
+fi
