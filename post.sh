@@ -53,6 +53,7 @@ if [ ! -d ~/.i3 ]; then
 fi
 
 ln -fs ${WD}/alacritty.yml ~/.config/alacritty.yml
+ln -fs ${WD}/bashrc ~/.bashrc
 mkdir -p ~/screenshots
 
 # Set up lightdm
