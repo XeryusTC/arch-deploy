@@ -27,18 +27,18 @@ font pango:Monospace 9
 ####################
 #      COLOURS     #
 ####################
-set $background #7738a0
-set $back-inact #0953d7
-set $back-urgen #e20a16
-set $border     #f600c3
-set $bor-in     #54a1ee
-set $bor-ur     #e0b7ck
-set $text       #f600c3
-set $t-in       #e5e4ef
-set $t-ur       #e0b7c0
+set $background #c2286c
+set $back-inact #1b507d
+set $back-urgen #f9354b
+set $border     #c85f88
+set $bor-in     #186a9d
+set $bor-ur     #f4f5f8
+set $text       #e7b0cc
+set $t-in       #47a6ac
+set $t-ur       #f4f5f8
 set $t-sb       #e5e4ef
-set $indicator  #00ed70
-set $ind-inact  #7adca3
+set $indicator  #d58bb1
+set $ind-inact  #4abadd
 set $ind-urgen  #00ed70
 # class                 border  background  text  indicator
 client.focused          $border $background $text $indicator
@@ -139,8 +139,8 @@ bar {
         separator  $bor-in
         # selectors        border      background  text
         focused_workspace  $border     $background $text
-        active_workspace   $bor-in     $back-inact $bor-in
-        inactive_workspace $back-inact $back-inact $bor-in
+        active_workspace   $bor-in     $back-inact $t-in
+        inactive_workspace $back-inact $back-inact $t-in
         urgent_workspace   $bor-ur     $back-urgen $t-ur
     }
     position top

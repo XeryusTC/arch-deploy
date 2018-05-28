@@ -29,6 +29,7 @@ texlive-science
 thunderbird
 ttf-dejavu
 ttf-inconsolata
+ttf-font-awesome
 ttf-symbola
 vim
 xautolock
