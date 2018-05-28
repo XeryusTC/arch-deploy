@@ -130,42 +130,9 @@ mouse_warping none
 ####################
 #    STATUS BAR    #
 ####################
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    colors {
-        background $back-inact
-        statusline $t-sb
-        separator  $bor-in
-        # selectors        border      background  text
-        focused_workspace  $border     $background $text
-        active_workspace   $bor-in     $back-inact $t-in
-        inactive_workspace $back-inact $back-inact $t-in
-        urgent_workspace   $bor-ur     $back-urgen $t-ur
-    }
-    position top
-    tray_output primary
-    strip_workspace_numbers yes
-    output $mon-right
-}
-
-bar {
-    colors {
-        background $back-inact
-        statusline $t-sb
-        separator  $bor-in
-        # selectors        border      background  text
-        focused_workspace  $border     $background $text
-        active_workspace   $bor-in     $back-inact $bor-in
-        inactive_workspace $back-inact $back-inact $bor-in
-        urgent_workspace   $bor-ur     $back-urgen $t-ur
-    }
-    position top
-    status_command i3status -c ~/.i3/i3status.conf
-    tray_output primary
-    strip_workspace_numbers yes
-    output $mon-left
-}
 
 
 ####################

@@ -1,0 +1,294 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #1b507d
+background-alt = #186a9d
+background-focused = #c2286c
+background-urgent = #f9354b
+;foreground = ${xrdb:color7:#222}
+foreground = #91e3f4
+foreground-alt = #0e9fcb
+foreground-focused = #e7b0cc
+foreground-urgent = #f4f5f8
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/left]
+monitor = DP-1
+width = 100%
+height = 18
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 1
+module-margin = 1
+
+font-0 = DejaVu:size=10;2
+font-1 = Font Awesome
+font-2 = Symbola:size=12;2
+
+modules-left = i3 xwindow
+modules-center = date
+modules-right = eth filesystem
+
+[bar/right]
+monitor = DVI-I-1
+width = 100%
+height = 18
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = ${bar/left.line-size}
+module-margin = ${bar/left.module-margin}
+
+font-0 = DejaVu:size=10;2
+font-1 = Font Awesome
+font-2 = Symbola:size=12;2
+
+tray-position = right
+tray-background = ${colors.background}
+modules-left = i3 xwindow
+modules-center = date
+modules-right = memory cpu load temperature volume
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:60:...%
+
+[module/filesystem]
+type = internal/fs
+interval = 10
+
+mount-0 = /
+mount-1 = /home
+
+label-mounted = %{F#0e9fcb}%mountpoint%%{F-} %percentage_used%% of %total%
+label-unmounted = %mountpoint% NA
+label-unmounted-foreground = ${colors.foreground-urgent}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = false
+wrapping-scroll = false
+strip-wsnumbers = true
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-background = ${colors.background-urgent}
+label-mode-foreground = ${colors.foreground-urgent}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%%icon%
+label-focused-background = ${colors.background-focused}
+label-focused-foreground = ${colors.foreground-focused}
+label-focused-underline = ${colors.background-focused}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = ${self.label-focused}
+label-unfocused-padding = ${self.label-focused-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = ${self.label-focused}
+label-visible-background = ${colors.background-alt}
+label-visible-underline = ${colors.background-alt}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = ${self.label-focused}
+label-urgent-background = ${colors.alert}
+label-urgent-padding = ${self.label-focused-padding}
+
+ws-icon-0 = mail; ✉
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "CPU "
+format = <label> <ramp-load>
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label = %percentage:2%%
+
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "RAM "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = net1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = enp5s0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = "🖧 "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip% %downspeed:7%⬇ %upspeed:7%⬆
+
+format-disconnected =
+format-disconnected-underline = #aa5555
+format-disconnected-prefix = "🖧 "
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+format-packetloss = <animation-packetloss> <label-connected>
+
+[module/date]
+type = internal/date
+interval = 1.0
+
+date = "%Y-%m-%d"
+
+time = %H:%M:%S
+
+format-prefix = "🕓 "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.background}
+
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume> 
+label-volume = %percentage:5%%
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = "🔇 "
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = muted
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+
+format = <label>
+format-underline = #f50a4d
+format-warn = <label-warn>
+format-warn-underline = ${module/cpu.format-underline}
+
+label = 🌡 %temperature%
+label-warn = 🌡 %temperature%
+label-warn-foreground = ${colors.secondary}
+
+[module/load]
+type = custom/script
+exec = $HOME/.config/polybar/system-cpu-loadavg.sh
+interval = 5
+format-underline = ${module/cpu.format-underline}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

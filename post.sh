@@ -60,6 +60,14 @@ mkdir -p ~/screenshots
 # Set up lightdm
 $SUDO ln -vfs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
 
+# Set up polybar
+mkdir -p ~/.config/polybar
+ln -vfs ${WD}/polybar/config ~/.config/polybar/config
+ln -vfs ${WD}/polybar/launch.sh ~/.config/polybar/launch.sh
+ln -vfs ${WD}/polybar/system-cpu-loadavg.sh \
+	~/.config/polybar/system-cpu-loadavg.sh
+chmod +x ~/.config/polybar/launch.sh
+
 # Set up pyenv
 if ! command_exists pyenv; then
 	git clone --depth=2 https://github.com/pyenv/pyenv.git ~/.pyenv
