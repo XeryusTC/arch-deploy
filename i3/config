@@ -70,7 +70,7 @@ exec compton -b -d :0 -GC --paint-on-overlay --unredir-if-possible --backend xr_
 ############################
 #   APPLICATION SETTINGS   #
 ############################
-set $WSbrowser 100:browser
+set $WSbrowser 100:www
 set $WSmail    mail
 set $WSsteam   steam
 set $WSmusic   music
