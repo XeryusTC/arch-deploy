@@ -38,10 +38,16 @@ if ! command_exists aurman ; then
 	cd $WD
 fi
 
-# Set up alacritty
-if ! command_exists alacritty ; then
-	aurman -S alacritty-scrollback-git
-fi
+# Install from AUR
+aurman -S alacritty-scrollback-git google-chrome spotify ttf-symbola
+$SUDO ln -vfs /usr/bin/google-chrome-stable /usr/bin/netflix
+
+# Set up git
+mkdir -p ~/.git
+ln -vfs ${WD}/global-gitignore ~/.git/global-gitignore
+git config --global core.excludesfile '~/.git/global-gitignore'
+git config --global user.email "armadillo@onenetbeyond.org"
+git config --global user.name "Xeryus Stokkel"
 
 # Set up i3
 if [ ! -d ~/.i3 ]; then
@@ -58,7 +64,12 @@ ln -vfs ${WD}/redshift.conf ~/.config/redshift.conf
 mkdir -p ~/screenshots
 
 # Set up lightdm
-$SUDO ln -vfs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
+#$SUDO ln -vfs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
+
+# Set up xorg
+# BEGIN armadillo
+#$SUDO ln -vfs ${WD}/armadillo-monitor.conf /etc/X11/xorg.conf.d/10-monitor.conf
+# END armadillo
 
 # Set up polybar
 mkdir -p ~/.config/polybar
@@ -67,6 +78,9 @@ ln -vfs ${WD}/polybar/launch.sh ~/.config/polybar/launch.sh
 ln -vfs ${WD}/polybar/system-cpu-loadavg.sh \
 	~/.config/polybar/system-cpu-loadavg.sh
 chmod +x ~/.config/polybar/launch.sh
+
+# Enable sound
+amixer set Master unmute 100
 
 # Set up pyenv
 if ! command_exists pyenv; then
@@ -97,8 +111,8 @@ fi
 if [ ! -f ~/.config/SpiderOakONE/config.txt ]; then
 	read -sp "SpiderOak password: " spideroakpass
 	read -p "SpiderOak devicename: " spideroakname
-	echo {"username":"xeryustc","password":"${spideroakpass}",\
-		"devicename":"${spideroakname}","reinstall":true} > /tmp/spideroak.json
+	echo {\"username\":\"XeryusTC\",\"password\":\"${spideroakpass}\",\
+		\"device_name\":\"${spideroakname}\",\"reinstall\":false} > /tmp/spideroak.json
 	SpiderOakONE --setup=/tmp/spideroak.json
 	rm /tmp/spideroak.json
 fi
