@@ -1,3 +1,4 @@
+alacritty
 alsa-utils
 bash-completion
 compton
@@ -21,7 +22,7 @@ maim
 polybar
 redshift
 rsync
-rust
+rustup
 texlive-bibtexextra
 texlive-core
 texlive-fontsextra

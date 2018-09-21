@@ -39,7 +39,7 @@ if ! command_exists aurman ; then
 fi
 
 # Install from AUR
-aurman -S alacritty-scrollback-git google-chrome spotify ttf-symbola
+aurman -S google-chrome spotify ttf-symbola
 $SUDO ln -vfs /usr/bin/google-chrome-stable /usr/bin/netflix
 
 # Set up git
