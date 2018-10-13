@@ -65,12 +65,15 @@ sed -i 's/lvm2/lvm2/; t; /HOOKS/s/filesystems/lvm2 encrypt filesystems/' \
 	/etc/mkinitcpio.conf
 
 echo "Creating fstab and crypttab"
+mkdir /mnt/video
 echo "swap /dev/mapper/${VOLUME_NAME}-swap /dev/urandom swap,cipher=aes-xts-plain64,size=256" > /mnt/etc/crypttab
 echo "tmp  /dev/mapper/${VOLUME_NAME}-tmp  /dev/urandom tmp,cipher=aes-xts-plain64,size=256" >> /mnt/etc/crypttab
 
 echo "/dev/mapper/root / ext4  defaults 0 1" > /mnt/etc/fstab
 echo "${INSTALL_DEV}1 /boot vfat  defaults 0 2" >> /mnt/etc/fstab
 echo "/dev/mapper/swap none swap sw 0 0" >> /mnt/etc/fstab
+echo "4f88a2a2-ea79-42d9-bdff-e14e1a288139 /mnt/video ext4 defaults 0 2" >> \
+	/mnt/etc/fstab
 
 
 echo "Installing Arch to file system"

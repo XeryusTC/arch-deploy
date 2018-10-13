@@ -63,7 +63,7 @@ exec redshift
 exec thunderbird
 exec --no-startup-id SpiderOakONE
 exec firefox
-exec owncloud
+exec nextcloud
 exec keepassxc
 exec compton -b -d :0 -GC --paint-on-overlay --unredir-if-possible --backend xr_glx_hybrid --vsync drm --glx-swap-method -1 --glx-no-stencil
 
