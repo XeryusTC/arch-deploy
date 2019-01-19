@@ -49,6 +49,11 @@ git config --global core.excludesfile '~/.git/global-gitignore'
 git config --global user.email "armadillo@onenetbeyond.org"
 git config --global user.name "Xeryus Stokkel"
 
+# Set up git prompt
+if [ ! -d ~/.bash-git-prompt ]; then
+	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=10
+fi
+
 # Set up i3
 if [ ! -d ~/.i3 ]; then
 	echo "Symlinking i3 config"

@@ -143,4 +143,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
-source /usr/share/nvm/init-nvm.sh
+
+# Git prompt
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
+GIT_PROMPT_START="$HC$FYEL[\t] $RS$HC$FGRN\u$FWHT@$FGRN\h$FWHT:$FBLE\w$RS"
+GIT_PROMPT_END="\n\$ "
