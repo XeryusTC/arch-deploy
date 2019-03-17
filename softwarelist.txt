@@ -19,6 +19,7 @@ libreoffice-fresh
 lightdm
 lightdm-gtk-greeter
 maim
+neovim
 polybar
 redshift
 rsync
@@ -38,7 +39,6 @@ thunderbird
 ttf-dejavu
 ttf-inconsolata
 ttf-font-awesome
-vim
 xautolock
 xclip
 xdotool

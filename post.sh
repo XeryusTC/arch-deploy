@@ -95,18 +95,18 @@ if ! command_exists pyenv; then
 fi
 
 # Set up vim
-ln -vfs ${WD}/vimrc ~/.vimrc
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
-	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+ln -vfs ${WD}/init.vim ~/.config/nvim/init.vim
+mkdir -p ~/.config/nvim/autoload ~/.config/nvim/bundle
+if [ ! -f ~/.config/nvim/autoload/pathogen.vim ]; then
+	curl -LSso ~/.config/nvim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi
-if [ ! -d ~/.vim/bundle/rust.vim ]; then
+if [ ! -d ~/.config/nvim/bundle/rust.vim ]; then
 	git clone --depth=2 https://github.com/rust-lang/rust.vim.git \
-		~/.vim/bundle/rust.vim
+		~/.config/nvim/bundle/rust.vim
 fi
-if [ ! -d ~/.vim/bundle/typescript-vim ]; then
+if [ ! -d ~/.config/nvim/bundle/typescript-vim ]; then
 	git clone --depth=2 https://github.com/leafgarland/typescript-vim.git \
-		~/.vim/bundle/typescript-vim
+		~/.config/nvim/bundle/typescript-vim
 fi
 
 # Set up SpiderOak
