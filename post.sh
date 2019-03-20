@@ -94,20 +94,34 @@ if ! command_exists pyenv; then
 		~/.pyenv/plugins/pyenv-virtualenv
 fi
 
-# Set up vim
+# Enable pyenv so vim can be set up
+export PYENV_ROOT="$HOME/.pyenv/"
+if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+fi
+
+# Set up neovim
 ln -vfs ${WD}/init.vim ~/.config/nvim/init.vim
-mkdir -p ~/.config/nvim/autoload ~/.config/nvim/bundle
-if [ ! -f ~/.config/nvim/autoload/pathogen.vim ]; then
-	curl -LSso ~/.config/nvim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-if [ ! -d ~/.config/nvim/bundle/rust.vim ]; then
-	git clone --depth=2 https://github.com/rust-lang/rust.vim.git \
-		~/.config/nvim/bundle/rust.vim
+
+if [ ! -d $PYENV_ROOT/versions/2.7.15 ]; then
+	$PYENV_ROOT/bin/pyenv install 2.7.15
 fi
-if [ ! -d ~/.config/nvim/bundle/typescript-vim ]; then
-	git clone --depth=2 https://github.com/leafgarland/typescript-vim.git \
-		~/.config/nvim/bundle/typescript-vim
+if [ ! -d $PYENV_ROOT/versions/3.7.0 ]; then
+	$PYENV_ROOT/bin/pyenv install 3.7.0
 fi
+if [ ! -f $PYENV_ROOT/versions/neovim2 ]; then
+	$PYENV_ROOT/bin/pyenv virtualenv 2.7.15 neovim2
+fi
+if [ ! -f $PYENV_ROOT/versions/neovim3 ]; then
+	$PYENV_ROOT/bin/pyenv virtualenv 3.7.0 neovim3
+fi
+$PYENV_ROOT/versions/neovim2/bin/pip install --upgrade neovim jedi
+$PYENV_ROOT/versions/neovim3/bin/pip install --upgrade neovim jedi
 
 # Set up SpiderOak
 if ! command_exists SpiderOakONE; then

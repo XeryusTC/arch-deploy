@@ -135,7 +135,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv/"
