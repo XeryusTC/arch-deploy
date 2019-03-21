@@ -108,6 +108,7 @@ if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+# Python venvs for use with neovim
 if [ ! -d $PYENV_ROOT/versions/2.7.15 ]; then
 	$PYENV_ROOT/bin/pyenv install 2.7.15
 fi
@@ -122,6 +123,11 @@ if [ ! -f $PYENV_ROOT/versions/neovim3 ]; then
 fi
 $PYENV_ROOT/versions/neovim2/bin/pip install --upgrade neovim jedi
 $PYENV_ROOT/versions/neovim3/bin/pip install --upgrade neovim jedi
+
+# neovim code completion for rust
+rustup toolchain add nightly
+rustup component add rust-src
+cargo +nightly install racer
 
 # Set up SpiderOak
 if ! command_exists SpiderOakONE; then

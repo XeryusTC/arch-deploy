@@ -11,6 +11,7 @@ else
 	Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'zchee/deoplete-jedi'
+Plug 'racer-rust/vim-racer'
 call plug#end()
 
 set number
@@ -21,10 +22,15 @@ set breakindent
 set breakindentopt=shift:2,min:40
 set colorcolumn=80,120
 hi ColorColumn ctermbg=blue
-" let g:pyindent_open_paren = '&sw'
-" let g:pyindent_nested_paren = '&sw'
 
+" Python
+let g:pyindent_open_paren = '&sw'
+let g:pyindent_nested_paren = '&sw'
 let g:deoplete#enable_at_startup = 1
+" Rust
+let g:racer_cmd = '/home/xeryus/.cargo/bin/racer'
+let g:racer_insert_paren = 1
+
 " automagically remove trailing whitespace for certain files when saving
 function! <SID>StripTrailingWhitespaces()
 	" Preparation: save last search, and cursor position
