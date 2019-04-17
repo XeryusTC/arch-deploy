@@ -10,10 +10,15 @@ else
 	Plug 'roxma/nvim-yarp'
 	Plug 'roxma/vim-hug-neovim-rpc'
 endif
+" Code completion
 Plug 'zchee/deoplete-jedi'
 Plug 'racer-rust/vim-racer'
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
+set hidden
 set number
 set relativenumber
 set tabstop=4
