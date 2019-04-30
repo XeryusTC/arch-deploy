@@ -14,10 +14,14 @@ endif
 Plug 'zchee/deoplete-jedi'
 Plug 'racer-rust/vim-racer'
 
+" Other
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
+filetype plugin on
 set hidden
 set number
 set relativenumber
@@ -26,7 +30,7 @@ set shiftwidth=4
 set breakindent
 set breakindentopt=shift:2,min:40
 set colorcolumn=80,120
-hi ColorColumn ctermbg=blue
+hi ColorColumn ctermbg=red
 
 " Python
 let g:pyindent_open_paren = '&sw'
@@ -35,6 +39,12 @@ let g:deoplete#enable_at_startup = 1
 " Rust
 let g:racer_cmd = '/home/xeryus/.cargo/bin/racer'
 let g:racer_insert_paren = 1
+
+" Close preview window on leaving the insert mode
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Nerdtree
+map <C-e> :NERDTreeToggle<CR>
 
 " automagically remove trailing whitespace for certain files when saving
 function! <SID>StripTrailingWhitespaces()
