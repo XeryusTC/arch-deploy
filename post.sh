@@ -96,7 +96,7 @@ fi
 
 # Enable pyenv so vim can be set up
 export PYENV_ROOT="$HOME/.pyenv/"
-if command -v pyenv 1>/dev/null 2>&1; then
+if command_exists pyenv; then
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
 fi
@@ -125,9 +125,17 @@ $PYENV_ROOT/versions/neovim2/bin/pip install --upgrade neovim jedi
 $PYENV_ROOT/versions/neovim3/bin/pip install --upgrade neovim jedi
 
 # neovim code completion for rust
-rustup toolchain add nightly
-rustup component add rust-src
-cargo +nightly install racer
+rustup toolchain list | grep nightly
+if [[ $? -eq 1 ]]; then
+	rustup toolchain add nightly
+fi
+rustup component list | grep rust-src
+if [[ $? -eq 1 ]]; then
+	rustup component add rust-src
+fi
+if ! command_exists racer; then
+	cargo +nightly install racer
+fi
 
 # Set up SpiderOak
 if ! command_exists SpiderOakONE; then
