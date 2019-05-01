@@ -11,7 +11,6 @@ htop
 imagemagick
 inkscape
 i3-wm
-i3lock
 i3status
 keepassxc
 less
@@ -39,7 +38,6 @@ thunderbird
 ttf-dejavu
 ttf-inconsolata
 ttf-font-awesome
-xautolock
 xclip
 xdotool
 xorg-server
@@ -50,5 +48,8 @@ xorg-xkbutils
 xorg-xmodmap
 xorg-xprop
 xorg-xrandr
+xscreensaver
+xss-lock
+xsecurelock
 zathura
 zathura-pdf-poppler
