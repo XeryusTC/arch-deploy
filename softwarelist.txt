@@ -18,6 +18,7 @@ libreoffice-fresh
 lightdm
 lightdm-gtk-greeter
 maim
+mpv
 neovim
 polybar
 redshift
@@ -51,5 +52,6 @@ xorg-xrandr
 xscreensaver
 xss-lock
 xsecurelock
+youtube-dl
 zathura
 zathura-pdf-poppler

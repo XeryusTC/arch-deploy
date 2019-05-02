@@ -63,6 +63,10 @@ if [ ! -d ~/.i3 ]; then
 	ln -vfs ${WD}/i3/lock.sh ~/.i3/lock.sh
 fi
 
+$SUDO ln -vfs ${WD}/xsecurelock/saver_blank /usr/lib/xsecurelock/saver_blank
+$SUDO ln -vfs ${WD}/xsecurelock/saver_mpv /usr/lib/xsecurelock/saver_mpv
+$SUDO ln -vfs ${WD}/xsecurelock/kittenstreams /usr/lib/xsecurelock/kittenstreams
+
 ln -vfs ${WD}/alacritty.yml ~/.config/alacritty.yml
 ln -vfs ${WD}/bashrc ~/.bashrc
 ln -vfs ${WD}/redshift.conf ~/.config/redshift.conf

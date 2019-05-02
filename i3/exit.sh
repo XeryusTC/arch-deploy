@@ -1,8 +1,7 @@
 #!/bin/sh
 
 lock() {
-	# Add a small delay to prevent suspend races
-	xautolock -locknow && sleep 1
+	xset s activate
 }
 
 case "$1" in
@@ -13,10 +12,10 @@ case "$1" in
 		i3-msg exit
 		;;
 	suspend)
-		lock && systemctl suspend
+		systemctl suspend
 		;;
 	hibernate)
-		lock && systemctl hibernate
+		systemctl hibernate
 		;;
 	reboot)
 		systemctl reboot
