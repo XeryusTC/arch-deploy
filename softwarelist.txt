@@ -20,6 +20,7 @@ lightdm-gtk-greeter
 maim
 mpv
 neovim
+npm
 polybar
 redshift
 rsync
@@ -52,6 +53,7 @@ xorg-xrandr
 xscreensaver
 xss-lock
 xsecurelock
+yarn
 youtube-dl
 zathura
 zathura-pdf-poppler

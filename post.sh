@@ -39,7 +39,7 @@ if ! command_exists aurman ; then
 fi
 
 # Install from AUR
-aurman -S google-chrome spotify ttf-symbola nextcloud-client
+aurman --needed -S google-chrome spotify ttf-symbola nextcloud-client
 $SUDO ln -vfs /usr/bin/google-chrome-stable /usr/bin/netflix
 
 # Set up git
@@ -140,6 +140,9 @@ fi
 if ! command_exists racer; then
 	cargo +nightly install racer
 fi
+
+# neovim code code completion for typescript
+$SUDO npm install -g typescript
 
 # Set up SpiderOak
 if ! command_exists SpiderOakONE; then
