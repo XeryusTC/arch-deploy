@@ -142,7 +142,7 @@ if ! command_exists racer; then
 fi
 
 # neovim code code completion for typescript
-$SUDO npm install -g typescript
+$SUDO npm install -g typescript neovim
 
 # Set up SpiderOak
 if ! command_exists SpiderOakONE; then
