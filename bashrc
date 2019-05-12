@@ -123,7 +123,7 @@ stty -ixon
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-alias lock=xset s activate
+alias lock='xset s activate'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

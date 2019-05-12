@@ -56,8 +56,8 @@ exec xss-lock -n /usr/lib/xsecurelock/dimmer -l -- \
 	env XSECURELOCK_AUTH_FOREGROUND_COLOR=$t-in \
 	XSECURELOCK_AUTH_BACKGROUND_COLOR=$back-inact \
 	XSECURELOCK_AUTH_WARNING_COLOR=$back-urgen \
-	XSECURELOCK_LIST_VIDEOS_COMMAND='cat /usr/lib/xsecurelock/kittenstreams'
-	XSECURELOCK_SAVER=saver_mpv
+	XSECURELOCK_LIST_VIDEOS_COMMAND='cat /usr/lib/xsecurelock/kittenstreams' \
+	XSECURELOCK_SAVER=saver_mpv \
 	xsecurelock
 
 ####################
