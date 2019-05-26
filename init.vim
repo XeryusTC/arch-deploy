@@ -27,6 +27,10 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Color scheme
 Plug 'NLKNguyen/papercolor-theme'
 
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 " Other
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
@@ -40,6 +44,7 @@ set number
 set relativenumber
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set breakindent
 set breakindentopt=shift:2,min:40
 set colorcolumn=80,120
@@ -74,6 +79,7 @@ set background=dark
 colorscheme PaperColor
 
 " Semshi setup
+g:semshi#tolerate_syntax_errors
 nmap <silent> <leader>rr :Semshi rename<CR>
 nmap <silent> <Tab> :Semshi goto name next<CR>
 nmap <silent> <S-Tab> :Semshi goto name prev<CR>
@@ -83,6 +89,11 @@ nmap <silent> <leader>f :Semshi goto function next<CR>
 nmap <silent> <leader>F :Semshi goto function prev<CR>
 nmap <silent> <leader>ee :Semshi error<CR>
 nmap <silent> <leader>ge :Semshi goto error<CR>
+
+" FileType specific setups
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 expandtab
 
 " automagically remove trailing whitespace for certain files when saving
 function! <SID>StripTrailingWhitespaces()
