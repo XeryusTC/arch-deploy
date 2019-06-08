@@ -30,16 +30,16 @@ if [[ $(git config --get filter.qualia.clean | head -c1 | wc -c) -eq 0 ]]; then
 	git checkout HEAD -- "$(git rev-parse --show-toplevel)"
 fi
 
-# Install aurman
-if ! command_exists aurman ; then
-	git clone https://aur.archlinux.org/aurman.git aurman
-	cd aurman
-	makepkg -si
+# Install pikaur
+if ! command_exists pikaur ; then
+    git clone https://aur.archlinux.org/pikaur.git
+    cd pikaur
+    makepkg -fsri
 	cd $WD
 fi
 
 # Install from AUR
-aurman --needed -S google-chrome spotify ttf-symbola nextcloud-client
+pikaur --needed -S google-chrome spotify ttf-symbola nextcloud-client
 $SUDO ln -vfs /usr/bin/google-chrome-stable /usr/bin/netflix
 
 # Set up git
@@ -146,7 +146,7 @@ $SUDO npm install -g typescript neovim
 
 # Set up SpiderOak
 if ! command_exists SpiderOakONE; then
-	aurman -S spideroak-one
+	pikaur -S spideroak-one
 fi
 if [ ! -f ~/.config/SpiderOakONE/config.txt ]; then
 	read -sp "SpiderOak password: " spideroakpass
