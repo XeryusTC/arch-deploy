@@ -79,7 +79,7 @@ set background=dark
 colorscheme PaperColor
 
 " Semshi setup
-g:semshi#tolerate_syntax_errors
+let g:semshi#tolerate_syntax_errors = v:true
 nmap <silent> <leader>rr :Semshi rename<CR>
 nmap <silent> <Tab> :Semshi goto name next<CR>
 nmap <silent> <S-Tab> :Semshi goto name prev<CR>
