@@ -90,6 +90,9 @@ nmap <silent> <leader>F :Semshi goto function prev<CR>
 nmap <silent> <leader>ee :Semshi error<CR>
 nmap <silent> <leader>ge :Semshi goto error<CR>
 
+" auto-pairs setup
+ let g:AutoPairsMultilineClose = 0
+
 " FileType specific setups
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 expandtab
@@ -107,5 +110,5 @@ function! <SID>StripTrailingWhitespaces()
 	let @/=_s
 	call cursor(l, c)
 endfunction
-autocmd FileType c,cpp,php,html,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,php,html,python,js autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
