@@ -39,7 +39,8 @@ if ! command_exists pikaur ; then
 fi
 
 # Install from AUR
-pikaur --needed -S google-chrome spotify ttf-symbola nextcloud-client
+pikaur --needed -S google-chrome spotify ttf-symbola nextcloud-client \
+    rofi-greenclip
 $SUDO ln -vfs /usr/bin/google-chrome-stable /usr/bin/netflix
 
 # Set up git
@@ -61,6 +62,7 @@ if [ ! -d ~/.i3 ]; then
 	ln -vfs ${WD}/i3/config ~/.i3/config
 	ln -vfs ${WD}/i3/exit.sh ~/.i3/exit.sh
 	ln -vfs ${WD}/i3/lock.sh ~/.i3/lock.sh
+    ln -vfs ${WD}/i3/select_and_paste.sh ~/.i3/select_and_paste.sh
 fi
 
 $SUDO ln -vfs ${WD}/xsecurelock/saver_blank /usr/lib/xsecurelock/saver_blank
@@ -74,6 +76,11 @@ ln -vfs ${WD}/bashrc ~/.bashrc
 ln -vfs ${WD}/redshift.conf ~/.config/redshift.conf
 ln -vfs ${WD}/rofi/config.rasi ~/.config/rofi/config.rasi
 ln -vfs ${WD}/rofi/solarized_alternate.rasi ~/.config/rofi/solarized_alterante.rasi
+ln -vfs ${WD}/rofi/greenclip.cfg ~/.config/greenclip.cfg
+
+# Enable greenclip
+systemctl --user enable greenclip.service
+systemctl --user start greenclip.service
 
 # Set up lightdm
 #$SUDO ln -vfs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
