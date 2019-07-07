@@ -3,7 +3,6 @@ alsa-utils
 bash-completion
 compton
 deluge
-dmenu
 feh
 firefox
 gimp
@@ -21,8 +20,10 @@ maim
 mpv
 neovim
 npm
+poetry
 polybar
 redshift
+rofi
 rsync
 rustup
 texlive-bibtexextra

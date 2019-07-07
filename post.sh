@@ -46,7 +46,7 @@ $SUDO ln -vfs /usr/bin/google-chrome-stable /usr/bin/netflix
 mkdir -p ~/.git
 ln -vfs ${WD}/global-gitignore ~/.git/global-gitignore
 git config --global core.excludesfile '~/.git/global-gitignore'
-git config --global user.email "armadillo@onenetbeyond.org"
+git config --global user.email "brontitall@dds.nl"
 git config --global user.name "Xeryus Stokkel"
 
 # Set up git prompt
@@ -67,10 +67,13 @@ $SUDO ln -vfs ${WD}/xsecurelock/saver_blank /usr/lib/xsecurelock/saver_blank
 $SUDO ln -vfs ${WD}/xsecurelock/saver_mpv /usr/lib/xsecurelock/saver_mpv
 $SUDO ln -vfs ${WD}/xsecurelock/kittenstreams /usr/lib/xsecurelock/kittenstreams
 
+mkdir -p ~/screenshots \
+    ~/.config/rofi
 ln -vfs ${WD}/alacritty.yml ~/.config/alacritty.yml
 ln -vfs ${WD}/bashrc ~/.bashrc
 ln -vfs ${WD}/redshift.conf ~/.config/redshift.conf
-mkdir -p ~/screenshots
+ln -vfs ${WD}/rofi/config.rasi ~/.config/rofi/config.rasi
+ln -vfs ${WD}/rofi/solarized_alternate.rasi ~/.config/rofi/solarized_alterante.rasi
 
 # Set up lightdm
 #$SUDO ln -vfs ${WD}/lightdm.conf /etc/lightdm/lightdm.conf
