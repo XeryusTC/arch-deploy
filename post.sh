@@ -67,7 +67,11 @@ fi
 
 $SUDO ln -vfs ${WD}/xsecurelock/saver_blank /usr/lib/xsecurelock/saver_blank
 $SUDO ln -vfs ${WD}/xsecurelock/saver_mpv /usr/lib/xsecurelock/saver_mpv
-$SUDO ln -vfs ${WD}/xsecurelock/kittenstreams /usr/lib/xsecurelock/kittenstreams
+$SUDO ln -vfs ${WD}/xsecurelock/getstreams.sh /usr/lib/xsecurelock/getstreams.sh
+git submodule update --init --recursive
+cd ${WD}/kittenstream
+poetry install
+cd ${WD}
 
 mkdir -p ~/screenshots \
     ~/.config/rofi

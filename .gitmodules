@@ -1,0 +1,3 @@
+[submodule "kittenstream"]
+	path = kittenstream
+	url = https://gitlab.com/XeryusTC/kittenstream.git
