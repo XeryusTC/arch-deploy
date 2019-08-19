@@ -1,4 +1,5 @@
 #!/usr/bin/sh
+set -e
 
 if ! [ $(id -u) = 0 ]; then
 	SUDO=sudo
@@ -40,7 +41,7 @@ fi
 
 # Install from AUR
 pikaur --needed -S google-chrome spotify ttf-symbola nextcloud-client \
-    rofi-greenclip
+    rofi-greenclip polybar
 $SUDO ln -vfs /usr/bin/google-chrome-stable /usr/bin/netflix
 
 # Set up git
@@ -54,6 +55,9 @@ git config --global user.name "Xeryus Stokkel"
 if [ ! -d ~/.bash-git-prompt ]; then
 	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=10
 fi
+
+# Set rust default toolchain
+rustup default stable
 
 # Set up i3
 if [ ! -d ~/.i3 ]; then
@@ -112,6 +116,9 @@ if ! command_exists pyenv; then
 		~/.pyenv/plugins/pyenv-virtualenv
 fi
 
+# Make it possible to start neovim with `vim`
+$SUDO ln -vfs /usr/bin/neovim /usr/bin/vim
+
 # Enable pyenv so vim can be set up
 export PYENV_ROOT="$HOME/.pyenv/"
 if command_exists pyenv; then
@@ -133,10 +140,10 @@ fi
 if [ ! -d $PYENV_ROOT/versions/3.7.0 ]; then
 	$PYENV_ROOT/bin/pyenv install 3.7.0
 fi
-if [ ! -f $PYENV_ROOT/versions/neovim2 ]; then
+if [ ! -d $PYENV_ROOT/versions/neovim2 ]; then
 	$PYENV_ROOT/bin/pyenv virtualenv 2.7.15 neovim2
 fi
-if [ ! -f $PYENV_ROOT/versions/neovim3 ]; then
+if [ ! -d $PYENV_ROOT/versions/neovim3 ]; then
 	$PYENV_ROOT/bin/pyenv virtualenv 3.7.0 neovim3
 fi
 $PYENV_ROOT/versions/neovim2/bin/pip install --upgrade neovim jedi

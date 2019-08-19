@@ -21,7 +21,6 @@ mpv
 neovim
 npm
 poetry
-polybar
 redshift
 rofi
 rsync
