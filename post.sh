@@ -117,7 +117,7 @@ if ! command_exists pyenv; then
 fi
 
 # Make it possible to start neovim with `vim`
-$SUDO ln -vfs /usr/bin/neovim /usr/bin/vim
+$SUDO ln -vfs /usr/bin/nvim /usr/bin/vim
 
 # Enable pyenv so vim can be set up
 export PYENV_ROOT="$HOME/.pyenv/"
