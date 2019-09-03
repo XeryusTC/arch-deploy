@@ -82,7 +82,7 @@ set $WSmail    mail
 set $WSsteam   steam
 set $WSmusic   music
 for_window [class="SpiderOakONE"] floating enable, border none
-assign [class="Firefox"]    $WSbrowser
+assign [class="firefox"]    $WSbrowser
 assign [class="Thunderbird"]    $WSmail
 assign [class="Steam"]      $WSsteam
 assign [class="Rhythmbox"]  $WSmusic
