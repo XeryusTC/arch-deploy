@@ -15,7 +15,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'racer-rust/vim-racer'
 " Typescript
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'mhartington/nvim-typescript', {'for': ['typescript', 'tsx'], 'do': './install.sh'}
 
 " Code folding
 Plug 'tmhedberg/SimpylFold'
@@ -36,6 +36,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 filetype plugin on
@@ -92,6 +93,9 @@ nmap <silent> <leader>ge :Semshi goto error<CR>
 
 " auto-pairs setup
  let g:AutoPairsMultilineClose = 0
+
+ " CtrlP
+ let g:ctrlp_working_path_mode = 'ra'
 
 " FileType specific setups
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
