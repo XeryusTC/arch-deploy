@@ -40,8 +40,12 @@ if ! command_exists pikaur ; then
 fi
 
 # Install from AUR
-pikaur --needed -S google-chrome spotify ttf-symbola nextcloud-client \
-    rofi-greenclip polybar
+pikaur --needed -S \
+    google-chrome \
+    spotify \
+    nextcloud-client \
+    rofi-greenclip \
+    polybar
 $SUDO ln -vfs /usr/bin/google-chrome-stable /usr/bin/netflix
 
 # Set up git
