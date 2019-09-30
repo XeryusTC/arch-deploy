@@ -38,6 +38,24 @@ font-2 = Symbola:size=12;2
 
 modules-left = i3 xwindow
 modules-center = date
+modules-right = memory cpu load temperature
+
+[bar/middle]
+monitor = DP-2
+width = 100%
+height = 18
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 0
+module-margin = 1
+
+font-0 = DejaVu:size=10;2
+font-1 = Font Awesome
+font-2 = Symbola:size=12;2
+
+modules-left = i3 xwindow
+modules-center = date
 modules-right = eth filesystem
 
 [bar/right]
@@ -56,10 +74,9 @@ font-2 = Symbola:size=12;2
 
 tray-position = right
 tray-background = ${colors.background}
-tray-transparent = false
 modules-left = i3 xwindow
 modules-center = date
-modules-right = memory cpu load temperature volume
+modules-right = alsa
 
 [module/xwindow]
 type = internal/xwindow
@@ -70,7 +87,6 @@ type = internal/fs
 interval = 10
 
 mount-0 = /
-mount-1 = /home
 
 label-mounted = %{F#0e9fcb}%mountpoint%%{F-} %percentage_used%% of %total%
 label-unmounted = %mountpoint% NA
@@ -210,8 +226,13 @@ format-underline = ${colors.background}
 
 label = %date% %time%
 
-[module/volume]
-type = internal/volume
+[module/alsa]
+type = internal/alsa
+
+master-soundcard = default
+speaker-soundcard = default
+master-mixer = Master
+mapped = true
 
 format-volume = <ramp-volume> <label-volume> 
 label-volume = %percentage%%
@@ -266,10 +287,10 @@ format-underline = #f50a4d
 format-warn = <label-warn>
 format-warn-underline = ${module/cpu.format-underline}
 
-label = %temperature%
+label = %temperature-c%
 format-prefix = 🌡
 format-prefix-foreground = ${colors.foreground-alt}
-label-warn = 🌡 %temperature%
+label-warn = 🌡 %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 [module/load]

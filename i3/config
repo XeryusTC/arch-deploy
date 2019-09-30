@@ -70,7 +70,7 @@ exec redshift
 exec thunderbird
 exec --no-startup-id SpiderOakONE
 exec firefox
-exec nextcloud
+#exec nextcloud
 exec keepassxc
 exec compton -b -d :0 -GC --paint-on-overlay --unredir-if-possible --backend xr_glx_hybrid --vsync drm --glx-swap-method -1 --glx-no-stencil
 
@@ -93,22 +93,28 @@ for_window[class="Steam" title="Friends"] \ floating enable
 # WORKSPACE LOCATIONS #
 #######################
 set $mon-left  DP-1
+set $mon-middle DP-2
 set $mon-right DVI-I-1
 # Assign workspaces to the right monitor
-workspace $WSbrowser output $mon-right
+workspace $WSbrowser output $mon-middle
 workspace $WSmail    output $mon-right
 workspace $WSmusic   output $mon-left
 # Assign workspaces to monitors (1-5 go on the left, 6-10 on the right)
-workspace  1 output $mon-right
-workspace  2 output $mon-right
+workspace  1 output $mon-left
+workspace  2 output $mon-middle
 workspace  3 output $mon-right
-workspace  4 output $mon-right
-workspace  5 output $mon-right
-workspace  6 output $mon-left
+workspace  4 output $mon-left
+workspace  5 output $mon-middle
+workspace  6 output $mon-right
 workspace  7 output $mon-left
-workspace  8 output $mon-left
-workspace  9 output $mon-left
+workspace  8 output $mon-middle
+workspace  9 output $mon-right
 workspace 10 output $mon-left
+workspace 11 output $mon-middle
+workspace 12 output $mon-right
+workspace 13 output $mon-left
+workspace 14 output $mon-middle
+workspace 15 output $mon-right
 
 
 ####################
@@ -170,23 +176,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up   focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+$mod2+h move left
 bindsym $mod+$mod2+j move down
 bindsym $mod+$mod2+k move up
 bindsym $mod+$mod2+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+$mod2+Left move left
-bindsym $mod+$mod2+Down move down
-bindsym $mod+$mod2+Up   move up
-bindsym $mod+$mod2+Right move right
 
 # split in horizontal orientation
 bindsym $mod+c split h
@@ -221,12 +215,17 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+bindsym $mod+f1 workspace number 11
+bindsym $mod+f2 workspace number 12
+bindsym $mod+f3 workspace number 13
+bindsym $mod+f4 workspace number 14
+bindsym $mod+f5 workspace number 15
 bindsym $mod+b workspace $WSbrowser
 # cycle through workspaces
 bindsym $mod+$mod2+Tab workspace prev
 bindsym $mod+Tab       workspace next
 # move to a specific workspace
-bindsym $mod+m exec i3-input -F 'workspace "%s"' -P 'Enter workspace name: '
+bindsym $mod+m exec i3-input -F 'workspace "%s"' -P 'Show workspace name: '
 
 # move focused container to workspace
 bindsym $mod+$mod2+1 move container to workspace number 1
@@ -241,7 +240,7 @@ bindsym $mod+$mod2+9 move container to workspace number 9
 bindsym $mod+$mod2+0 move container to workspace number 10
 bindsym $mod+$mod2+b move container to workspace $WSbrowser
 # move window to a named workspace
-bindsym $mod+$mod2+m exec i3-input -F 'move container to workspace "%s"' -P 'Enter workspace name: '
+bindsym $mod+$mod2+m exec i3-input -F 'move container to workspace "%s"' -P 'Mote to workspace name: '
 
 # rename workspaces
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
