@@ -99,7 +99,7 @@ systemctl --user start greenclip.service
 
 # Set up xorg
 # BEGIN armadillo
-#$SUDO ln -vfs ${WD}/armadillo-monitor.conf /etc/X11/xorg.conf.d/10-monitor.conf
+#$SUDO ln -vfs ${WD}/armadillo-nvidia.conf /etc/X11/xorg.conf.d/20-nvidia.conf
 # END armadillo
 
 # Set up polybar

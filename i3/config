@@ -92,7 +92,7 @@ for_window[class="Steam" title="Friends"] \ floating enable
 #######################
 # WORKSPACE LOCATIONS #
 #######################
-set $mon-left  DP-1
+set $mon-left  DP-0
 set $mon-middle DP-2
 set $mon-right DVI-I-1
 # Assign workspaces to the right monitor
